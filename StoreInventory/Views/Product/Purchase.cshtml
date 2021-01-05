@@ -1,0 +1,83 @@
+﻿@model StoreInventory.Models.ViewModel.ProductDetailsViewModel
+
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<h2>Purchase</h2>
+
+@if (TempData["Purchased"] != null)
+{
+    <div class="alert-danger alert">
+        @TempData["Purchased"]
+    </div>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal"> 
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="QtyEditor">
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control QuantityEdit" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="qtyAmount">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Order" id="saveButton" name="OrderButton" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            var realAmount = $('#Amount').val();
+            $('#Quantity').on('keyup', function () {
+                if ($('#Quantity').val() > 0) {
+                    $('#Amount').val(realAmount * $('#Quantity').val());
+                    $('saveButton').prop("disabled", true);
+                } else {
+                    $('#Amount').val(realAmount);
+                    $('saveButton').prop("disabled", true);
+
+                }
+            });
+            //$('#saveButton').click(function () {
+            //    if (!confirm("Are you sure to delete")) return false;
+            //    $(this).prop("disabled", true);
+            //    if (!$('form').valid()) {
+            //        $(this).prop("disabled", false);
+            //        return false;
+            //    }
+            //    $('form').submit();
+            //});
+        });
+    </script>
+}
