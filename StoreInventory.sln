@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreInventory.Services", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreInventory.Tests", "StoreInventory.Tests\StoreInventory.Tests.csproj", "{97B58FBB-58C6-45A6-965D-9C631B9E6AFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreInventory.Services.Test", "StoreInventory.Services.Test\StoreInventory.Services.Test.csproj", "{239C5F69-BB39-4707-928F-39B92D4B5FE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{97B58FBB-58C6-45A6-965D-9C631B9E6AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97B58FBB-58C6-45A6-965D-9C631B9E6AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97B58FBB-58C6-45A6-965D-9C631B9E6AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239C5F69-BB39-4707-928F-39B92D4B5FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239C5F69-BB39-4707-928F-39B92D4B5FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239C5F69-BB39-4707-928F-39B92D4B5FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239C5F69-BB39-4707-928F-39B92D4B5FE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
